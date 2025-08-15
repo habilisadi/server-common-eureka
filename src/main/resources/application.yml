@@ -1,9 +1,9 @@
 server:
-  port: 8090
+  port: 8080
 
 spring:
   application:
-    name: habilisadi-eureka
+    name: habilisadi_eureka
 
 eureka:
   instance:
@@ -13,3 +13,18 @@ eureka:
     fetch-registry: false
   server:
     enable-self-preservation: false
+
+management:
+  server:
+    port: 8081
+  endpoints:
+    web:
+      exposure:
+        include: prometheus, health, metrics
+  prometheus:
+    metrics:
+      export:
+        enabled: true
+  metrics:
+    tags:
+      application: "habilisadi_eureka"
